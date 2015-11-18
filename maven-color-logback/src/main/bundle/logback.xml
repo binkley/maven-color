@@ -1,4 +1,9 @@
-<configuration>
+<configuration debug="${maven.logging.debug:-false}">
+    <if condition='Boolean.valueOf(property("maven.logging.debug"))'>
+        <then>
+            <variable name="maven.logging.root.level" value="debug"/>
+        </then>
+    </if>
 
     <define name="withJansi" class="com.github.jcgay.maven.color.logback.WithJansiResolver" />
 
